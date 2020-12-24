@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+<h1>Edit address</h1>
+
+<form method = "POST">
+	{% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.names}}" name="names">
+  </div>
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.email}}" name="email">
+  </div>
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.phone}}" name="phone">
+  </div>
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.address}}" name="address">
+  </div>
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.city}}" name="city">
+  </div>
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.state}}" name="state">
+  </div>
+
+
+<div class="mb-3">
+    <input type="text" class="form-control" id="exampleInputEmail1" value="{{ get_address.zipcode}}" name="zipcode">
+  </div>
+
+
+  
+ 
+  <button type="submit" class="btn btn-primary">EDIT address</button>
+
+</form>
+
+<form  method ="POST" action = "{% url 'delete_address' get_address.id  %}">
+	{% csrf_token %}
+	
+	<button type="submit" class="btn btn-primary">DELETE address</button>
+
+</form>
+ {% endblock  %}

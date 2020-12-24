@@ -32,8 +32,35 @@
     </div>
   </div>
 </nav>
+<br>
+
+    {% if messages %}
+      {% for message in messages  %}
+          <div class="alert alert-warning alert-dismissable" role="alert">
+
+        <button class="close" data-dismiss ="alert">
+          
+          <small><sup>x</sup></small>
+        </button>
+
+        {{ message }}
+        </div>
+
+
+      {% endfor %}
+
+  {% endif %}
+
 
    <div class ="container">
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
   {% block content %}
 
   {% endblock %}
